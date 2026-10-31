@@ -40,13 +40,14 @@
     }
   ],
   "build": {
-    "node": "24.15.0",
+    "node": "26.12.1",
     "npm": "12.2.0",
     "install": "npm ci --ignore-scripts",
     "compile": "npm run build",
     "package": "npm pack --ignore-scripts",
     "artifactLock": "Install the built tarball by immutable artifact URL and lockfile SHA512 integrity. A Git checkout alone does not contain the compiled exports.",
-    "reproducibility": "Source revision and built artifact digest are pinned. Upstream dist banners include build time; bit-identical rebuilds are not claimed."
+    "reproducibility": "Source revision and built artifact digest are pinned. Upstream dist banners include build time; bit-identical rebuilds are not claimed.",
+    "toolchainNote": "The build scripts ran with Node 26.12.1 selected by their child-process PATH; npm CLI was 12.2.0. Node 24.15.0 was used separately to install Electron 32.1.2. This metadata correction does not change compiled runtime files."
   },
   "lifetime": "Texture batch groups follow upstream global resource semantics: terminal source/style destruction, idle GC, or explicit releaseGlobalResources retires them. Default renderer destruction preserves reusable global caches.",
   "license": "MIT; the original LICENSE and all original copyright notices are retained.",
