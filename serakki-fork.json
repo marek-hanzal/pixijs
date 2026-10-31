@@ -1,0 +1,54 @@
+{
+  "package": "pixi.js",
+  "version": "8.22.0-serakki.09ddeb64731d",
+  "codeRevision": "09ddeb64731d65f41859add3d90d6c66b45b677d",
+  "upstreamBase": "4fabfa6409c35cc114cb4fbfbb812c9cd8abdced",
+  "repository": "https://github.com/marek-hanzal/pixijs",
+  "upstreamRepository": "https://github.com/pixijs/pixijs",
+  "includedChanges": [
+    {
+      "pr": "https://github.com/pixijs/pixijs/pull/12258",
+      "originalCommit": "2bd2078cb967ac2d259571d38b93840085a66ebd",
+      "integratedCommit": "8da65a53dfcbd03a6101b7c9d31ee0869d44e8ce",
+      "note": "Contextual cherry-pick; retained newer UniformBatch command-buffer test while combining imports."
+    },
+    {
+      "pr": "https://github.com/pixijs/pixijs/pull/12260",
+      "originalCommits": [
+        "7a88f2b3b97b50b57e90f826a277c72bfb15a2d3",
+        "8c3f76b5f8502186dc316664181256534ba1e041"
+      ],
+      "integratedCommits": [
+        "2bf1784eaa016f7dc9b165119aa2305f4533ca70",
+        "f359071aeb47b141738c8ad94b45d0aa1544baab"
+      ]
+    },
+    {
+      "pr": "https://github.com/pixijs/pixijs/pull/12353",
+      "originalCommit": "5feaae8cca4a21489457b3a3ecdfc83eada9cdb2",
+      "integratedCommit": "09ddeb64731d65f41859add3d90d6c66b45b677d"
+    }
+  ],
+  "alreadyInBase": [
+    {
+      "pr": "https://github.com/pixijs/pixijs/pull/12259",
+      "behavior": "Filter texture pool eviction and bind-group destruction."
+    },
+    {
+      "pr": "https://github.com/pixijs/pixijs/pull/12290",
+      "behavior": "WebGPU additive alpha matches WebGL."
+    }
+  ],
+  "build": {
+    "node": "24.15.0",
+    "npm": "12.2.0",
+    "install": "npm ci --ignore-scripts",
+    "compile": "npm run build",
+    "package": "npm pack --ignore-scripts",
+    "artifactLock": "Install the built tarball by immutable artifact URL and lockfile SHA512 integrity. A Git checkout alone does not contain the compiled exports.",
+    "reproducibility": "Source revision and built artifact digest are pinned. Upstream dist banners include build time; bit-identical rebuilds are not claimed."
+  },
+  "lifetime": "Texture batch groups follow upstream global resource semantics: terminal source/style destruction, idle GC, or explicit releaseGlobalResources retires them. Default renderer destruction preserves reusable global caches.",
+  "license": "MIT; the original LICENSE and all original copyright notices are retained.",
+  "aiDisclosure": "The Serakki uniform fix, tests, integration metadata, and validation were prepared with OpenAI Codex assistance. Existing upstream changes retain their original authorship."
+}

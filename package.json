@@ -1,6 +1,6 @@
 {
   "name": "pixi.js",
-  "version": "8.22.0",
+  "version": "8.22.0-serakki.09ddeb64731d",
   "author": "PixiJS Team",
   "homepage": "http://pixijs.com/",
   "bugs": "https://github.com/pixijs/pixijs/issues",
@@ -31,7 +31,8 @@
     "lib",
     "dist",
     "transcoders",
-    "skills"
+    "skills",
+    "serakki-fork.json"
   ],
   "scripts": {
     "prepare": "husky install",
