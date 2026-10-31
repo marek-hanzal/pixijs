@@ -1,0 +1,38 @@
+{
+  "package": "pixi.js",
+  "version": "8.22.0-serakki.f79549619cd5",
+  "sourceCommit": "59f869a96adc2575e0add37472eebe9137b6594a",
+  "codeCommit": "f79549619cd5e5fc82a949d88ea333e76289636b",
+  "file": "pixi.js-8.22.0-serakki.f79549619cd5.tgz",
+  "sha256": "e10c2208401a06638504d03613c459ca77062425b5ace0734207f056cbb3ab04",
+  "integrity": "sha512-gbqSKgWEOF8EiKuvkux4G395pAzgPa4YZ92uBE3ansInggqDZRhZTmyGVk4l7GYUVYDSUaffOsy1silZ2PRz0w==",
+  "bytes": 16012051,
+  "requiredPackageTargets": 60,
+  "missingTargets": [],
+  "privatePathMatches": [],
+  "license": "MIT",
+  "licenseSha256": "5ce7447bc57f7349ffc48338782fbcabe613696e00712b20d66bc58e780f9473",
+  "build": {
+    "node": "24.15.0",
+    "npm": "12.2.0",
+    "commands": [
+      "npm ci --ignore-scripts",
+      "npm run build",
+      "npm pack --ignore-scripts"
+    ]
+  },
+  "upstreamPullRequests": [
+    12258,
+    12259,
+    12260,
+    12290,
+    12353
+  ],
+  "validation": {
+    "focusedPaddingKeyRegression": "Fails before, passes after on actual WebGPU",
+    "affectedTests": "16 suites,172 tests passed",
+    "static": "Lint, build/examples/playground types, index passed",
+    "build": "Full production build passed"
+  },
+  "rebuildLimit": "Upstream dist banners include build time; immutable artifact hash pins distributed bytes, and bit-identical rebuilds are not claimed."
+}
