@@ -1,19 +1,19 @@
 {
   "package": "pixi.js",
   "version": "8.22.0-serakki.f79549619cd5",
-  "sourceCommit": "59f869a96adc2575e0add37472eebe9137b6594a",
+  "sourceCommit": "7b114fe3b0f9f4e1868d4147f066d40ba276e83e",
   "codeCommit": "f79549619cd5e5fc82a949d88ea333e76289636b",
   "file": "pixi.js-8.22.0-serakki.f79549619cd5.tgz",
-  "sha256": "e10c2208401a06638504d03613c459ca77062425b5ace0734207f056cbb3ab04",
-  "integrity": "sha512-gbqSKgWEOF8EiKuvkux4G395pAzgPa4YZ92uBE3ansInggqDZRhZTmyGVk4l7GYUVYDSUaffOsy1silZ2PRz0w==",
-  "bytes": 16012051,
+  "sha256": "39ae86265d3b5530de45a738efd589a91381a89b55c6fa865453e386f50b512f",
+  "integrity": "sha512-3nAsmg5XxwuBRvde/myj/c+9+uvnjXT6xpVioQlGWeFPIQr/1dqHzlnJj2uKY1lXnlfBKr9FcdvnrtNLcSVPgA==",
+  "bytes": 16012237,
   "requiredPackageTargets": 60,
   "missingTargets": [],
   "privatePathMatches": [],
   "license": "MIT",
   "licenseSha256": "5ce7447bc57f7349ffc48338782fbcabe613696e00712b20d66bc58e780f9473",
   "build": {
-    "node": "24.15.0",
+    "node": "26.12.1",
     "npm": "12.2.0",
     "commands": [
       "npm ci --ignore-scripts",
@@ -34,5 +34,8 @@
     "static": "Lint, build/examples/playground types, index passed",
     "build": "Full production build passed"
   },
-  "rebuildLimit": "Upstream dist banners include build time; immutable artifact hash pins distributed bytes, and bit-identical rebuilds are not claimed."
+  "rebuildLimit": "Upstream dist banners include build time; immutable artifact hash pins distributed bytes, and bit-identical rebuilds are not claimed.",
+  "compiledRuntimeRevision": "59f869a96adc2575e0add37472eebe9137b6594a",
+  "packageMetadataRevision": "7b114fe3b0f9f4e1868d4147f066d40ba276e83e",
+  "metadataCorrection": "Correct actual build subprocess Node version. All3755other package files, including every runtime JS/MJS, declaration and license, are byte-identical to the previously verified artifact; only serakki-fork.json changed."
 }
