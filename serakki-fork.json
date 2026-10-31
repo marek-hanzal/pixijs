@@ -1,7 +1,7 @@
 {
   "package": "pixi.js",
-  "version": "8.22.0-serakki.09ddeb64731d",
-  "codeRevision": "09ddeb64731d65f41859add3d90d6c66b45b677d",
+  "version": "8.22.0-serakki.f79549619cd5",
+  "codeRevision": "f79549619cd5e5fc82a949d88ea333e76289636b",
   "upstreamBase": "4fabfa6409c35cc114cb4fbfbb812c9cd8abdced",
   "repository": "https://github.com/marek-hanzal/pixijs",
   "upstreamRepository": "https://github.com/pixijs/pixijs",
@@ -50,5 +50,12 @@
   },
   "lifetime": "Texture batch groups follow upstream global resource semantics: terminal source/style destruction, idle GC, or explicit releaseGlobalResources retires them. Default renderer destruction preserves reusable global caches.",
   "license": "MIT; the original LICENSE and all original copyright notices are retained.",
-  "aiDisclosure": "The Serakki uniform fix, tests, integration metadata, and validation were prepared with OpenAI Codex assistance. Existing upstream changes retain their original authorship."
+  "aiDisclosure": "The Serakki uniform fix, tests, integration metadata, and validation were prepared with OpenAI Codex assistance. Existing upstream changes retain their original authorship.",
+  "compatibilityAdaptations": [
+    {
+      "commit": "f79549619cd5e5fc82a949d88ea333e76289636b",
+      "reason": "The older PR12260 constructor wrote padding directly to resources; current BindGroup requires unwatched setters to initialize content hashes. Preserve key equivalence across empty-texture unload without adding padding listeners.",
+      "proof": "Existing WebGPU empty-texture unload scenario extended with equivalent-resource key assertions; fails before, passes after."
+    }
+  ]
 }
