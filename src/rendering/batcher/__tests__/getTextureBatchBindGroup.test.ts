@@ -1,5 +1,6 @@
 import { getTextureBatchBindGroup } from '../gpu/getTextureBatchBindGroup';
 import { describeLocalOnly, getTexture, getWebGPURenderer } from '@test-utils';
+import { BindGroup } from '~/rendering/renderers/gpu/shader/BindGroup';
 import { RenderTexture } from '~/rendering/renderers/shared/texture/RenderTexture';
 import { TextureSource } from '~/rendering/renderers/shared/texture/sources/TextureSource';
 import { Texture } from '~/rendering/renderers/shared/texture/Texture';
@@ -288,19 +289,33 @@ describe('getTextureBatchBindGroup', () =>
             const renderer = await getWebGPURenderer();
             const device = renderer.gpu.device;
             const stage = new Container();
+            const texture = getTexture({ width: 8, height: 8 });
 
-            stage.addChild(new Sprite(getTexture({ width: 8, height: 8 })));
+            stage.addChild(new Sprite(texture));
             renderer.render(stage);
 
-            await device.queue.onSubmittedWorkDone();
-            Texture.EMPTY.source.unload();
+            const group = getTextureBatchBindGroup([texture.source], 1, renderer.limits.maxBatchableTextures);
+            const reference = new BindGroup(group.resources);
 
-            device.pushErrorScope('validation');
-            renderer.render(stage);
+            try
+            {
+                expect([group._keyLow, group._keyHigh]).toEqual([reference._keyLow, reference._keyHigh]);
 
-            expect(await device.popErrorScope()).toBeNull();
+                await device.queue.onSubmittedWorkDone();
+                Texture.EMPTY.source.unload();
 
-            renderer.destroy();
+                expect([group._keyLow, group._keyHigh]).toEqual([reference._keyLow, reference._keyHigh]);
+
+                device.pushErrorScope('validation');
+                renderer.render(stage);
+
+                expect(await device.popErrorScope()).toBeNull();
+            }
+            finally
+            {
+                reference.destroy();
+                renderer.destroy();
+            }
         });
 
         it('should keep reporting a texture destroyed while its sprite is still drawn', async () =>

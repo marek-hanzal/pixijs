@@ -54,14 +54,13 @@ class TextureBatchBindGroup extends BindGroup implements GCable
             bindIndex++;
         }
 
-        // one module level listener covers the padding slots, so they take none of their own
-        const resources = this.resources;
+        // Padding participates in the content key; one module listener watches its changes.
         const pad = Texture.EMPTY.source;
 
         for (let i = textureCount; i < maxTextures; i++)
         {
-            resources[bindIndex++] = pad;
-            resources[bindIndex++] = pad.style;
+            this.setResourceUnwatched(pad, bindIndex++);
+            this.setResourceUnwatched(pad.style, bindIndex++);
         }
     }
 
